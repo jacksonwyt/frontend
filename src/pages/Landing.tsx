@@ -1,5 +1,6 @@
 // frontend/src/pages/Landing.tsx
 
+import React from 'react';
 import { type ReactElement } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';

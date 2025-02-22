@@ -1,12 +1,11 @@
 // frontend/src/App.tsx
 import React from 'react';
-import type { ReactElement } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Landing from './pages/Landing';
 import Dashboard from './pages/Dashboard';
 import Header from './components/Header';
 
-const App = (): ReactElement => {
+const App = () => {
   return (
     <BrowserRouter>
       <div className="min-h-screen bg-darkGray text-white">

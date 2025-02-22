@@ -1,4 +1,4 @@
-import React, { useState, useEffect, type ReactElement } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { motion } from 'framer-motion';
 import { Line } from 'react-chartjs-2';
@@ -27,7 +27,7 @@ const getCSRFToken = (): string | null => {
   return csrfToken;
 };
 
-const Dashboard = (): ReactElement => {
+const Dashboard = () => {
   const [marketData, setMarketData] = useState<MarketData[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -49,7 +49,6 @@ const Dashboard = (): ReactElement => {
     };
     fetchData();
 
-    // Get WebSocket auth token from the server
     const getWsToken = async () => {
       try {
         const response = await axios.get('/api/ws-token', {

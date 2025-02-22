@@ -1,9 +1,9 @@
 // frontend/src/components/Header.tsx
-import React, { useState, type ReactElement } from 'react';
+import { useState, type FC } from 'react';
 import { Link } from 'react-router-dom';
 import { MenuIcon, XIcon } from '@heroicons/react/solid';
 
-const Header = (): ReactElement => {
+const Header: FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (

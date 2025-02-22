@@ -1,7 +1,6 @@
 //frontend/src/components/Subscribe.tsx
 
 import React from 'react';
-import type { ReactElement } from 'react';
 import { loadStripe } from '@stripe/stripe-js';
 import axios from 'axios';
 
@@ -11,7 +10,7 @@ interface SubscribeProps {
   tier: string;
 }
 
-const Subscribe = ({ tier }: SubscribeProps): ReactElement => {
+const Subscribe = ({ tier }: SubscribeProps) => {
   const handleSubscribe = async () => {
     const stripe = await stripePromise;
     const token = localStorage.getItem('token');
