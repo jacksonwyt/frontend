@@ -1,14 +1,14 @@
-//frontend/src/App.tsx
-
+// frontend/src/App.tsx
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import type { ReactElement } from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Landing from './pages/Landing';
 import Dashboard from './pages/Dashboard';
 import Header from './components/Header';
 
-const App: React.FC = () => {
+const App = (): ReactElement => {
   return (
-    <Router>
+    <BrowserRouter>
       <div className="min-h-screen bg-darkGray text-white">
         <Header />
         <Routes>
@@ -16,7 +16,7 @@ const App: React.FC = () => {
           <Route path="/app" element={<Dashboard />} />
         </Routes>
       </div>
-    </Router>
+    </BrowserRouter>
   );
 };
 

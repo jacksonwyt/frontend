@@ -1,12 +1,17 @@
 //frontend/src/components/Subscribe.tsx
 
 import React from 'react';
+import type { ReactElement } from 'react';
 import { loadStripe } from '@stripe/stripe-js';
 import axios from 'axios';
 
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY || '');
 
-const Subscribe: React.FC<{ tier: string }> = ({ tier }) => {
+interface SubscribeProps {
+  tier: string;
+}
+
+const Subscribe = ({ tier }: SubscribeProps): ReactElement => {
   const handleSubscribe = async () => {
     const stripe = await stripePromise;
     const token = localStorage.getItem('token');

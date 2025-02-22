@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, type ReactElement } from 'react';
 import axios from 'axios';
 import { motion } from 'framer-motion';
 import { Line } from 'react-chartjs-2';
@@ -19,7 +19,7 @@ interface WebSocketData {
   data: MarketData[];
 }
 
-const getCSRFToken = () => {
+const getCSRFToken = (): string | null => {
   const csrfToken = document.cookie
     .split('; ')
     .find(row => row.startsWith('XSRF-TOKEN='))
@@ -27,7 +27,7 @@ const getCSRFToken = () => {
   return csrfToken;
 };
 
-const Dashboard: React.FC = () => {
+const Dashboard = (): ReactElement => {
   const [marketData, setMarketData] = useState<MarketData[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -101,10 +101,10 @@ const Dashboard: React.FC = () => {
   }, []);
 
   const chartData = {
-    labels: marketData.map(d => d.symbol),
+    labels: marketData.map((d: MarketData) => d.symbol),
     datasets: [{
       label: 'Profit Score',
-      data: marketData.map(d => d.score),
+      data: marketData.map((d: MarketData) => d.score),
       borderColor: '#00ff99',
       backgroundColor: 'rgba(0, 255, 153, 0.1)',
       tension: 0.4,
@@ -161,7 +161,7 @@ const Dashboard: React.FC = () => {
                 className="mb-16"
               >
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                  {marketData.slice(0, 3).map((coin, index) => (
+                  {marketData.slice(0, 3).map((coin: MarketData, index: number) => (
                     <motion.div
                       key={coin.symbol}
                       initial={{ opacity: 0, y: 20 }}
